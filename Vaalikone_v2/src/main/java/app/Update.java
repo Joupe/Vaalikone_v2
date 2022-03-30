@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
-import data.Fish;
+import data.Question;
 
 //Waltteri testing
 //JOEL KIRJOTTI TÄN
@@ -34,11 +34,11 @@ public class Update extends HttpServlet {
 		String id=request.getParameter("id");
 		String breed=request.getParameter("breed");
 		
-		Fish f=new Fish(id, breed);
+		Question f=new Question(id, breed);
 		
-		ArrayList<Fish> list=null;
+		ArrayList<Question> list=null;
 		if (dao.getConnection()) {
-			list=dao.updateFish(f);
+			list=dao.updateQuestions(f);
 		}
 		//moro terve t. Juna
 		request.setAttribute("fishlist", list);
