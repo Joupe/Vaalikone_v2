@@ -1,9 +1,6 @@
 package app;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,25 +8,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
-import data.Fish;
-
+import data.Question;
 /**
- * Servlet implementation class ShowFish
+ * Servlet implementation class AddQuestion
  */
-@WebServlet("/showfish")
-public class ShowFish extends HttpServlet {
+@WebServlet(
+	    name = "AddQuestion",
+	    urlPatterns = {"/addquestion"}
+	)
+public class AddQuestion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao=null;
 	
 	@Override
 	public void init() {
-		dao=new Dao("jdbc:mysql://localhost:3306/fishdatabase", "pena", "kukkuu");
+		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone", "sikli", "kukkuu");
 	}
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowFish() {
+    public AddQuestion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,16 +37,16 @@ public class ShowFish extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Fish> list=null;
-		if (dao.getConnection()) {
-			list=dao.readAllFish();
-		}
-		else {
-			System.out.println("No connection to database");
-		}
-		request.setAttribute("fishlist", list);
-		
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showfish.jsp");
-		rd.forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
 }

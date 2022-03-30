@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  
  <%@ page import="java.util.ArrayList" %>   
- <%@ page import="data.Fish" %>   
+ <%@ page import="data.Question" %>   
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
     
@@ -25,11 +25,11 @@
 </ol>
 
 <%
-ArrayList<Fish> fishList=(ArrayList<Fish>)request.getAttribute("fishlist");
+ArrayList<Question> fishList=(ArrayList<Question>)request.getAttribute("fishlist");
 
 for (int i=0;fishList!=null && i<fishList.size();i++){
-	Fish f=fishList.get(i);
-	out.println(f.getId()+": "+f.getBreed()+"<a href='/delete?id="+f.getId()+"'>delete</a> <a href='/readtoupdate?id="+f.getId()+"'>update</a>");
+	Question f=fishList.get(i);
+	out.println(f.getId()+": "+f.getQuestion()+"<a href='/delete?id="+f.getId()+"'>delete</a> <a href='/readtoupdate?id="+f.getId()+"'>update</a>");
 }
 %>
 
