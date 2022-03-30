@@ -1,6 +1,7 @@
 package app;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,13 +14,14 @@ import dao.Dao;
 import data.Question;
 
 /**
- * Servlet implementation class ReadToUpdate
+ * Servlet implementation class ShowFish
  */
-@WebServlet("/readtoupdate")
-public class ReadToUpdate extends HttpServlet {
+@WebServlet("/showquestion")
+public class ShowQuestions extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Dao dao;
+	private Dao dao = null;
 
+	@Override
 	public void init() {
 		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone", "sikli", "kukkuu");
 	}
@@ -27,7 +29,7 @@ public class ReadToUpdate extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ReadToUpdate() {
+	public ShowQuestions() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -38,15 +40,15 @@ public class ReadToUpdate extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String id = request.getParameter("question_id");
-		Question q = null;
+		ArrayList<Question> list = null;
 		if (dao.getConnection()) {
-			q = dao.readQuestion(id);
+			list = dao.readAllQuestions();
+		} else {
+			System.out.println("No connection to database");
 		}
-		request.setAttribute("question", q);
+		request.setAttribute("fishlist", list);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showfishtoedit.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showfish.jsp");
 		rd.forward(request, response);
 	}
 }
