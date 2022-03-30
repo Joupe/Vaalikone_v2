@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
 import data.Fish;
+
 //Waltteri testing
+//JOEL KIRJOTTI TÄN
 @WebServlet(
     name = "Update",
     urlPatterns = {"/update"}
@@ -38,7 +40,7 @@ public class Update extends HttpServlet {
 		if (dao.getConnection()) {
 			list=dao.updateFish(f);
 		}
-		
+		//moro terve t. Juna
 		request.setAttribute("fishlist", list);
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showfish.jsp");
 		rd.forward(request, response);
