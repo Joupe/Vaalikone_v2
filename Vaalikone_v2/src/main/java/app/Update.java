@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import dao.Dao;
 import data.Fish;
 
-//JOEL KIRJOTTI TÄN
-
+//Waltteri testing
+//JOEL KIRJOTTI TÃ„N
 @WebServlet(
     name = "Update",
     urlPatterns = {"/update"}
