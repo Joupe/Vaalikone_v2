@@ -23,7 +23,7 @@ public class ShowQuestions extends HttpServlet {
 
 	@Override
 	public void init() {
-		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone", "sikli", "kukkuu");
+		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
 	}
 
 	/**
@@ -46,7 +46,7 @@ public class ShowQuestions extends HttpServlet {
 		} else {
 			System.out.println("No connection to database");
 		}
-		request.setAttribute("fishlist", list);
+		request.setAttribute("questionlist", list);
 
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showfish.jsp");
 		rd.forward(request, response);
