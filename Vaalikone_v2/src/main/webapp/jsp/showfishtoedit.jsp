@@ -8,13 +8,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Fish application</title>
+<title>Admin Question Page</title>
 </head>
 <body>
-<h2>Edit fish</h2>
+<h2>Edit questions</h2>
 <form action='update' method='post'>
-Fish id: <input type='text' name='id' value='${requestScope.fish.id}' readonly><br> 
-Fish breed: <input type='text' name='breed' value='${requestScope.fish.breed}'><br>
+Question id: <input type='text' name='id' value='${requestScope.question.id}' readonly><br> 
+Question: <input type='text' name='question' value='${requestScope.question.question}'><br>
 <input type='submit' name='ok' value='Send'> 
 </form>
 </body>

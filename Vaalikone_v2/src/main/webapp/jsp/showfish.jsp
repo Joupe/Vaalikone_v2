@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Fish application</title>
+<title>Admin Question Page</title>
 
 <link rel="stylesheet" type="text/css" href="mycssfilesomewhere.css">
 <script src="myscriptfile.js"></script>
@@ -19,17 +19,17 @@
 <body>
 <h2>Fish application</h2>
 <ol>
-<c:forEach var="fish" items="${requestScope.fishlist}" >
-<li>${fish.id}: ${fish.breed} <a href='/delete?id=${fish.id}'>delete</a> <a href='/readtoupdate?id=${fish.id}'>update</a>
+<c:forEach var="question" items="${requestScope.fishlist}" >
+<li>${question.id}: ${question.question} <a href='/delete?id=${question.id}'>delete</a> <a href='/readtoupdate?id=${question.id}'>update</a>
 </c:forEach>
 </ol>
 
 <%
-ArrayList<Question> fishList=(ArrayList<Question>)request.getAttribute("fishlist");
+ArrayList<Question> questionList=(ArrayList<Question>)request.getAttribute("questionlist");
 
-for (int i=0;fishList!=null && i<fishList.size();i++){
-	Question f=fishList.get(i);
-	out.println(f.getId()+": "+f.getQuestion()+"<a href='/delete?id="+f.getId()+"'>delete</a> <a href='/readtoupdate?id="+f.getId()+"'>update</a>");
+for (int i=0;questionList!=null && i<questionList.size();i++){
+	Question q=questionList.get(i);
+	out.println(q.getId()+": "+q.getQuestion()+"<a href='/delete?id="+q.getId()+"'>delete</a> <a href='/readtoupdate?id="+q.getId()+"'>update</a>");
 }
 %>
 
