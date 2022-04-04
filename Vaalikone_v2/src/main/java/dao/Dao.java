@@ -100,22 +100,18 @@ public class Dao {
 			return null;
 		}
 	}
-//	public Question addQuestion(String id) {
-//		Question f=null;
-//		try {
-//			String sql="select * from fish where id=?";
-//			PreparedStatement pstmt=conn.prepareStatement(sql);
-//			pstmt.setString(1, id);
-//			ResultSet RS=pstmt.executeQuery();
-//			while (RS.next()){
-//				f=new Question();
-//				f.setId(RS.getInt("id"));
-//				f.setQuestion(RS.getString("breed"));
-//			}
-//		return f;
-//		}
-//		catch(SQLException e) {
-//			return null;
-//		}
-//	}
+
+		public ArrayList<Question> addQuestion(Question q) {
+		Question que = null;
+		try {
+			String sql = "insert into questions (question) values ('" + que.getQuestion() + "')";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.executeQuery();
+			return readAllQuestions();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			
+		}
+		return null;
+	}
 }

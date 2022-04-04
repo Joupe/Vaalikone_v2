@@ -1,6 +1,9 @@
 package app;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +49,20 @@ public class AddQuestion extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		
+		String question=request.getParameter("question");
+		String id=null;
+		Question q=new Question(id,question);
+		
+		ArrayList<Question> add=null;
+		if (dao.getConnection()) {
+		 add=dao.addQuestion(q);
+		}
+		
+		request.setAttribute("questionlist", add);
+		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showfish.jsp");
+		rd.forward(request, response);
 	}
 
 }
