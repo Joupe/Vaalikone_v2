@@ -25,7 +25,7 @@ public class ShowQuestions extends HttpServlet {
 	public void init() {
 		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
 	}
-
+//comment to help choop
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
