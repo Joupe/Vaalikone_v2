@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
 import data.Question;
-//TESTIMUUTOS
+
 @WebServlet(
     name = "Delete",
     urlPatterns = {"/delete"}
