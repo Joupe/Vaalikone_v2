@@ -101,16 +101,17 @@ public class Dao {
 		}
 	}
 
-		public void addQuestion(Question q) {
+		public ArrayList<Question> addQuestion(Question q) {
 		Question que = null;
 		try {
 			String sql = "insert into questions (question) values ('" + que.getQuestion() + "')";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.executeQuery();
-			readAllQuestions();
-			
+			return readAllQuestions();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
+			
 		}
+		return null;
 	}
 }
