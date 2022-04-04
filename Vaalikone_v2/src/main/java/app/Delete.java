@@ -30,7 +30,7 @@ public class Delete extends HttpServlet {
 		if (dao.getConnection()) {
 			list=dao.deleteQuestion(id);
 		}
-		request.setAttribute("fishlist", list);
+		request.setAttribute("questionlist", list);
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showfish.jsp");
 		rd.forward(request, response);
 	}

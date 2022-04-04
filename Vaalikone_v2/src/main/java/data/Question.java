@@ -3,7 +3,7 @@ package data;
 public class Question {
 	private int id;
 	private String question;
-	public Question(String id, String breed) {
+	public Question(String id, String question) {
 		// TODO Auto-generated constructor stub
 		setId(id);
 		this.question=question;
