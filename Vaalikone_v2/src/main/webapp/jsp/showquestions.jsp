@@ -22,6 +22,7 @@ background-color: tomato;
 </head>
 <body>
 	<h2>Fish application</h2>
+
 	<ol>
 		<c:forEach var="question" items="${requestScope.questionlist}">
 			<li>${question.id}:${question.question} <a
@@ -29,12 +30,14 @@ background-color: tomato;
 				href='/readtoupdate?id=${question.id}'>update</a>
 		</c:forEach>
 	</ol>
+
 <h2>Add a question</h2>
 	<form action='addquestion' method='post'>
 		Question: <input type='text' name='question'
 			value='${requestScope.question.question}'><br> <input
 			type='submit' name='ok' value='Send'>
 	</form>
+
 	<%
 	ArrayList<Question> questionList = (ArrayList<Question>) request.getAttribute("questionlist");
 
