@@ -101,12 +101,12 @@ public class Dao {
 		}
 	}
 
-		public ArrayList<Question> addQuestion(Question q) {
+		public ArrayList<Question> addQuestion(String kysmari) {
 		Question que = null;
 		try {
-			String sql = "insert into questions (question) values ('" + que.getQuestion() + "')";
+			String sql = "insert into questions (question) values ('"+kysmari+"')";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.executeQuery();
+			pstmt.executeUpdate();
 			return readAllQuestions();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
