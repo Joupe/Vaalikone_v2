@@ -49,7 +49,7 @@ public class ShowQuestions extends HttpServlet {
 		}
 		request.setAttribute("questionlist", list);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showfish.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showquestions.jsp");
 		rd.forward(request, response);
 	}
 }
