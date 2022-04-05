@@ -22,7 +22,7 @@ public class AddQuestion extends HttpServlet {
 	private Dao dao = null;
 
 	// JOONA APU ON TULOSSA
-	// CHOUNAH TÖ HELP IS CAMING
+	// CHOUNAH TÃ– HELP IS CAMING
 	@Override
 	public void init() {
 		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
@@ -61,11 +61,16 @@ public class AddQuestion extends HttpServlet {
 		String kysymys = q.getQuestion();
 		ArrayList<Question> add = null;
 		if (dao.getConnection()) {
+
 			add = dao.addQuestion(kysymys);
+
+
 		}
 
 		request.setAttribute("questionlist", add);
+
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showquestions.jsp");
+
 		rd.forward(request, response);
 	}
 
