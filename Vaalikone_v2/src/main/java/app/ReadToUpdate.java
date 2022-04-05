@@ -44,6 +44,7 @@ public class ReadToUpdate extends HttpServlet {
 		if (dao.getConnection()) {
 			q = dao.readQuestion(id);
 		}
+		
 		request.setAttribute("question", q);
 
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showfishtoedit.jsp");

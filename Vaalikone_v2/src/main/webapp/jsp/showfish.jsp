@@ -22,6 +22,7 @@ background-color: tomato;
 </head>
 <body>
 	<h2>Fish application</h2>
+
 	<ol>
 		<c:forEach var="question" items="${requestScope.questionlist}">
 			<li>${question.id}:${question.question} <a
