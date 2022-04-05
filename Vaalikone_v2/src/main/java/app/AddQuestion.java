@@ -58,11 +58,11 @@ public class AddQuestion extends HttpServlet {
 		String kysymys = q.getQuestion();
 		ArrayList<Question> add=null;
 		if (dao.getConnection()) {
-		 add=dao.addQuestion(kysymys);
+			add=dao.addQuestion(kysymys);
 		}
 		
 		request.setAttribute("questionlist", add);
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showfish.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showquestions.jsp");
 		rd.forward(request, response);
 	}
 
