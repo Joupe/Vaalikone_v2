@@ -22,10 +22,11 @@ import data.Question;
 public class AddQuestion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao=null;
-	
+	// JOONA APU ON TULOSSA
+	// CHOUNAH TÖ HELP IS CAMING
 	@Override
 	public void init() {
-		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone", "sikli", "kukkuu");
+		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
 	}
        
     /**
@@ -54,10 +55,10 @@ public class AddQuestion extends HttpServlet {
 		String question=request.getParameter("question");
 		String id=null;
 		Question q=new Question(id,question);
-		
+		String kysymys = q.getQuestion();
 		ArrayList<Question> add=null;
 		if (dao.getConnection()) {
-		 add=dao.addQuestion(q);
+		 add=dao.addQuestion(kysymys);
 		}
 		
 		request.setAttribute("questionlist", add);

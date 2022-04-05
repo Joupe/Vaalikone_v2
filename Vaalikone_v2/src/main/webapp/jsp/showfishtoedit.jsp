@@ -17,5 +17,10 @@ Question id: <input type='text' name='id' value='${requestScope.question.id}' re
 Question: <input type='text' name='question' value='${requestScope.question.question}'><br>
 <input type='submit' name='ok' value='Send'> 
 </form>
+<h2>Add a question</h2>
+<form action='addquestion' method='post'>
+Question: <input type='text' name='question' value='${requestScope.question.question}'><br> 
+<input type='submit' name='ok' value='Send'> 
+</form>
 </body>
 </html>
