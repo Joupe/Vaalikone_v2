@@ -12,8 +12,6 @@
 <meta charset="UTF-8">
 <title>Admin Question Page</title>
 
-<link rel="stylesheet" type="text/css" href="mycssfilesomewhere.css">
-<script src="myscriptfile.js"></script>
 
 </head>
 <body>
