@@ -16,22 +16,23 @@
 </head>
 <body>
 <h2>Fish application</h2>
-<ol>
-<c:forEach var="question" items="${requestScope.fishlist}" >
+<li>
+<c:forEach var="question" items="${requestScope.questionlist}" >
 <li>${question.id}: ${question.question} <a href='/delete?id=${question.id}'>delete</a> <a href='/readtoupdate?id=${question.id}'>update</a>
 </c:forEach>
-</ol>
+</li>
 
-<%
-ArrayList<Question> questionList=(ArrayList<Question>)request.getAttribute("questionlist");
 
-for (int i=0;questionList!=null && i<questionList.size();i++){
-	Question q=questionList.get(i);
-	out.println(q.getId()+": "+q.getQuestion()+"<a href='/delete?id="+q.getId()+"'>delete</a> <a href='/readtoupdate?id="+q.getId()+"'>update</a>");
-}
-%>
-
-<%@ include file="../html/somehtml.html" %>
+<form action='update' method='post'> 
+Question id: <input type='text' name='id' value='${requestScope.question.id}'><br> 
+Question: <input type='text' name='question' value='${requestScope.question.question}'><br>
+<input type='submit' name='ok' value='Send'> 
+</form>
+<h2>Add a question</h2>
+<form action='addquestion' method='post'>
+Question: <input type='text' name='question' value='${requestScope.question.question}'><br> 
+<input type='submit' name='ok' value='Send'> 
+</form>
 
 
 
