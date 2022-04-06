@@ -11,7 +11,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Admin Question Page</title>
+<style>
 
+body {
+background-color: tomato;
+}
+
+</style>
 
 </head>
 <body>
