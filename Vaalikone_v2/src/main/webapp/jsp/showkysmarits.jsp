@@ -5,12 +5,13 @@
  <%@ page import="data.Question" %>   
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-    
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Admin Question Page</title>
+
 <style>
 
 body {
@@ -18,6 +19,7 @@ background-color: tomato;
 }
 
 </style>
+
 
 </head>
 <body>
@@ -39,8 +41,6 @@ Question: <input type='text' name='question' value='${requestScope.question.ques
 Question: <input type='text' name='question' value='${requestScope.question.question}'><br> 
 <input type='submit' name='ok' value='Send'> 
 </form>
-
-
 
 </body>
 </html>
