@@ -25,6 +25,7 @@ public class ShowQuestions extends HttpServlet {
 	public void init() {
 		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
 	}
+
 //comment to help choop
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -48,7 +49,7 @@ public class ShowQuestions extends HttpServlet {
 		}
 		request.setAttribute("questionlist", list);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showfish.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showquestions.jsp");
 		rd.forward(request, response);
 	}
 }
