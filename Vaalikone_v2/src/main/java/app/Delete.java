@@ -23,7 +23,7 @@ public class Delete extends HttpServlet {
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		String id = request.getParameter("question_id");
+		String id = request.getParameter("id");
 		ArrayList<Question> list = null;
 		if (dao.getConnection()) {
 			list = dao.deleteQuestion(id);
