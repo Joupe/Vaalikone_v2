@@ -16,7 +16,7 @@ import data.Question;
 /**
  * Servlet implementation class ShowFish
  */
-@WebServlet("/showquestion")
+@WebServlet("/showquestions")
 public class ShowQuestions extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao = null;
@@ -49,7 +49,7 @@ public class ShowQuestions extends HttpServlet {
 		}
 		request.setAttribute("questionlist", list);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showquestions.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showkysmarits.jsp");
 		rd.forward(request, response);
 	}
 }
