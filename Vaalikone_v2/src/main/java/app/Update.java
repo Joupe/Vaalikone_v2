@@ -40,7 +40,8 @@ public class Update extends HttpServlet {
 			list=dao.updateQuestions(q);
 		}
 		request.setAttribute("questionlist", list);
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showquestions.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showkysmarits.jsp");
 		rd.forward(request, response);
+		
 	}
 }
