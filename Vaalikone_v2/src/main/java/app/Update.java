@@ -42,5 +42,6 @@ public class Update extends HttpServlet {
 		request.setAttribute("questionlist", list);
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showquestions.jsp");
 		rd.forward(request, response);
+		
 	}
 }
