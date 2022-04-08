@@ -11,18 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
-import data.Question;
+import data.Candidates;
 
 /**
- * Servlet implementation class AddQuestion
+ * Servlet implementation class CandAdd
  */
-@WebServlet(name = "AddQuestion", urlPatterns = { "/addquestion" })
-public class AddQuestion extends HttpServlet {
+@WebServlet(name = "CandAdd", urlPatterns = { "/candadd" })
+public class CandAdd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao = null;
 
-	// JOONA APU ON TULOSSA
-	// CHOUNAH TÖ HELP IS CAMING
 	@Override
 	public void init() {
 		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
@@ -31,7 +29,7 @@ public class AddQuestion extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public AddQuestion() {
+	public CandAdd() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -53,24 +51,37 @@ public class AddQuestion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// doGet(request, response);
 
-		String question = request.getParameter("question");
 		String id = null;
+		String surname = request.getParameter("surname");
+		String firstname = request.getParameter("first_name");
+		String candNumb = request.getParameter("cand_no");
+		String age = request.getParameter("age");
+		String hometown = request.getParameter("hometown");
+		String party = request.getParameter("party");
+		String profession = request.getParameter("profession");
+		String description = request.getParameter("descr");
 		
-		Question q = new Question(id, question);
-		String kysymys = q.getQuestion();
-
-		ArrayList<Question> add = null;
+		Candidates c = new Candidates(id, surname, firstname, candNumb, age, hometown, party, profession, description);
+		String cSurname = c.getSurname();
+		String cFirstname = c.getFirstname();
+		String cCandnumb = c.getCandNumb();
+		String cAge = c.getAge();
+		String cHometown = c.getHometown();
+		String cParty = c.getParty();
+		String cProfession = c.getProfession();
+		String cDescription = c.getDescription();
+				
+		ArrayList<Candidates> add = null;
 		if (dao.getConnection()) {
 
-			add = dao.addQuestion(kysymys);
+			add = dao.addCandidate(cSurname, cFirstname, cCandnumb, cAge, cHometown, cParty, cProfession, cDescription);
 
 		}
 
-		request.setAttribute("questionlist", add);
+		request.setAttribute("candidatelist", add);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showkysmarits.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/managecandidates.jsp");
 
 		rd.forward(request, response);
 	}

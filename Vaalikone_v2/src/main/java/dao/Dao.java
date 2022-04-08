@@ -101,17 +101,65 @@ public class Dao {
 		}
 	}
 
-		public ArrayList<Question> addQuestion(String kysmari) {
+	public ArrayList<Question> addQuestion(String kysmari) {
 		Question que = null;
 		try {
-			String sql = "insert into questions (question) values ('"+kysmari+"')";
+			String sql = "insert into questions (question) values ('" + kysmari + "')";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
 			return readAllQuestions();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			
+
 		}
 		return null;
 	}
+//		public ArrayList<Candidates> readAllCandidates() {
+//			ArrayList<Candidates> list = new ArrayList<>();
+//			try {
+//				Statement stmt = conn.createStatement();
+//				ResultSet RS = stmt.executeQuery("select * from candidates");
+//				while (RS.next()) {
+//					Candidates c = new Candidates();
+//					c.setId(RS.getInt("candidate_id"));
+//					c.setSurname(RS.getString("surname"));
+//					c.setFirstname(RS.getString("first_name"));
+//					c.setCandNumb(RS.getString("cand_no"));
+//					c.setAge(RS.getString("age"));
+//					c.setHometown(RS.getString("hometown"));
+//					c.setParty(RS.getString("party"));
+//					c.setProfession(RS.getString("profession"));
+//					c.setDescription(RS.getString("descr"));
+//					list.add(c);
+//				}
+//				return list;
+//			} catch (SQLException e) {
+//				return null;
+//			}
+//		}
+//		public Candidates readCandidate(String id) {
+//			Candidates c = null;
+//			try {
+//				String sql = "select * from candidates where candidate_id=?";
+//				PreparedStatement pstmt = conn.prepareStatement(sql);
+//				pstmt.setString(1, id);
+//				ResultSet RS = pstmt.executeQuery();
+//				while (RS.next()) {
+//					c = new Candidates();
+//					c.setId(RS.getInt("candidate_id"));
+//					c.setSurname(RS.getString("surname"));
+//					c.setFirstname(RS.getString("first_name"));
+//					c.setCandNumb(RS.getString("cand_no"));
+//					c.setAge(RS.getString("age"));
+//					c.setHometown(RS.getString("hometown"));
+//					c.setParty(RS.getString("party"));
+//					c.setProfession(RS.getString("profession"));
+//					c.setDescription(RS.getString("descr"));
+//				}
+//				return c;
+//			} catch (SQLException e) {
+//				return null;
+//			}
+//		}
+		
 }
