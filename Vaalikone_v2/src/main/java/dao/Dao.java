@@ -177,6 +177,26 @@ public class Dao {
 		}
 	}
 
+	public ArrayList<Candidates> updateCandidates(Candidates c) {
+		try {
+			String sql = "update candidates set surname=?, first_name=?, cand_no=?, age=?, hometown=?, party=?, profession=?, descr=? where question_id=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, c.getSurname());
+			pstmt.setString(2, c.getFirstname());
+			pstmt.setInt(3, c.getCandNumb());
+			pstmt.setInt(4, c.getAge());
+			pstmt.setString(5, c.getHometown());
+			pstmt.setString(6, c.getParty());
+			pstmt.setString(7, c.getProfession());
+			pstmt.setString(8, c.getDescription());
+			pstmt.setInt(9, c.getId());
+			pstmt.executeUpdate();
+			return readAllCandidates();
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+
 	public ArrayList<Candidates> addCandidate(String cSurname, String cFirstname, int cCandnumb, int cAge,
 			String cHometown, String cParty, String cProfession, String cDescription) {
 //		Candidates cand = null;
@@ -191,5 +211,4 @@ public class Dao {
 		}
 		return null;
 	}
-
 }
