@@ -179,7 +179,7 @@ public class Dao {
 
 	public ArrayList<Candidates> updateCandidates(Candidates c) {
 		try {
-			String sql = "update candidates set surname=?, first_name=?, cand_no=?, age=?, hometown=?, party=?, profession=?, descr=? where question_id=?";
+			String sql = "update candidates set surname=?, first_name=?, cand_no=?, age=?, hometown=?, party=?, profession=?, descr=? where candidate_id=?";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, c.getSurname());
 			pstmt.setString(2, c.getFirstname());
@@ -201,7 +201,7 @@ public class Dao {
 			String cHometown, String cParty, String cProfession, String cDescription) {
 //		Candidates cand = null;
 		try {
-			String sql = "insert into candidates(cSurname, cFirstname, cCandnumb, cAge, cHometown, cParty, cProfession, cDescription) values ('" + cSurname + "', '" + cFirstname + "', '" + cCandnumb + "', '" + cAge + ", '" + cHometown + "', '" + cParty + "', '" + cProfession + "', '" + cDescription + "')";
+			String sql = "insert into candidates(surname, first_name, cand_no, age, hometown, party, profession, descr) values ('" + cSurname + "', '" + cFirstname + "', '" + cCandnumb + "', '" + cAge + "', '" + cHometown + "', '" + cParty + "', '" + cProfession + "', '" + cDescription + "')";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
 			return readAllCandidates();
