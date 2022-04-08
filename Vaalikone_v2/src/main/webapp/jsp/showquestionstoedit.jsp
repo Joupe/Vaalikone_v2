@@ -33,7 +33,11 @@
 			value='${requestScope.question.question}'><br> <input
 			type='submit' name='ok' value='Send'>
 	</form>
-
+<br>
+<form action='addquestion' method='post'>
+Question: <input type='text' name='question' value='${requestScope.question.question}'><br> 
+<input type='submit' name='ok' value='Send'> 
+</form>
 
 </body>
 </html>
