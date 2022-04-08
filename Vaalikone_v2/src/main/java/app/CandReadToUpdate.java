@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
-import data.Question;
+import data.Candidates;
 
 /**
  * Servlet implementation class ReadToUpdate
  */
-@WebServlet("/readtoupdate")
-public class ReadToUpdate extends HttpServlet {
+@WebServlet("/candreadtoupdate")
+public class CandReadToUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao;
 
@@ -27,7 +27,7 @@ public class ReadToUpdate extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ReadToUpdate() {
+	public CandReadToUpdate() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -39,15 +39,23 @@ public class ReadToUpdate extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String id = request.getParameter("question_id");
-		Question q = null;
+		String id = request.getParameter("candidate_id");
+		Candidates c = null;
 		if (dao.getConnection()) {
-			q = dao.readQuestion(id);
+			c = dao.readCandidate(id);
 		}
+		
+		request.setAttribute("surname", c);
+		request.setAttribute("first_name", c);
+		request.setAttribute("cand_no", c);
+		request.setAttribute("age", c);
+		request.setAttribute("hometown", c);
+		request.setAttribute("party", c);
+		request.setAttribute("profession", c);
+		request.setAttribute("descr", c);
 
-		request.setAttribute("question", q);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showquestionstoedit.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/managecandidates.jsp");
 
 		rd.forward(request, response);
 	}

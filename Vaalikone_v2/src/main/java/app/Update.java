@@ -13,35 +13,32 @@ import javax.servlet.http.HttpServletResponse;
 import dao.Dao;
 import data.Question;
 
-
-@WebServlet(
-    name = "Update",
-    urlPatterns = {"/update"}
-)
+@WebServlet(name = "Update", urlPatterns = { "/update" })
 public class Update extends HttpServlet {
 	private Dao dao;
+
 	public void init() {
-		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
+		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
 	}
+
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) 
-	     throws IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		response.sendRedirect("index.html");
 	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response) 
-	     throws IOException, ServletException {
-		String id=request.getParameter("id");
-		String question=request.getParameter("question");
-		
-		Question q=new Question(id, question);
-		
-		ArrayList<Question> list=null;
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String id = request.getParameter("id");
+		String question = request.getParameter("question");
+
+		Question q = new Question(id, question);
+
+		ArrayList<Question> list = null;
 		if (dao.getConnection()) {
-			list=dao.updateQuestions(q);
+			list = dao.updateQuestions(q);
 		}
 		request.setAttribute("questionlist", list);
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showkysmarits.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/showkysmarits.jsp");
 		rd.forward(request, response);
-		
+
 	}
 }
