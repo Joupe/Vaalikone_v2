@@ -30,5 +30,18 @@ Profession: <input type='text' name='profession' value='${requestScope.candidate
 Description: <input type='text' name='description' value='${requestScope.candidate.description}'><br>
 <input type='submit' name='ok' value='Send'> 
 </form>
+<br>
+<h2>Add a question</h2>
+<form action='addquestion' method='post'>
+Surname: <input type='text' name='surname' value='${requestScope.candidate.surname}'><br>
+First name: <input type='text' name='firstname' value='${requestScope.candidate.firstname}'><br>
+Candidate number: <input type='text' name='candNumb' value='${requestScope.candidate.candNumb}'><br>
+Age: <input type='text' name='age' value='${requestScope.candidate.age}'><br>
+Home town: <input type='text' name='hometown' value='${requestScope.candidate.hometown}'><br>
+Party: <input type='text' name='party' value='${requestScope.candidate.party}'><br>
+Profession: <input type='text' name='profession' value='${requestScope.candidate.profession}'><br>
+Description: <input type='text' name='description' value='${requestScope.candidate.description}'><br>
+<input type='submit' name='ok' value='Send'> 
+</form>
 </body>
 </html>
