@@ -13,11 +13,11 @@ During our second sprint I continued working on the codes, as they were still on
 Third sprint I worked on making setters and getters for our candidates. Also worked on the code
 that updates the candidates on our database.
 ## Joel
-*First sprint*
+*First sprint*<br>
 I was assigned to the UI of the websites and planning and creating the questions. Also we did databases, GitHub reposiroty and Eclipse project.
 
-*Second sprint*
+*Second sprint*<br>
 Creating some UI and remove function.
 
-*Third sprint*
+*Third sprint*<br>
 Created remove function and add function to the candidate management section.
