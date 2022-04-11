@@ -28,19 +28,23 @@ background-color: LightBlue;
 <h2>Manage questions</h2>
 <li>
 <c:forEach var="question" items="${requestScope.questionlist}" >
-<li>${question.id}: ${question.question} <a href='/delete?id=${question.id}'>delete</a> 
+<li><b>ID:</b> ${question.id} <b>Question</b>: ${question.question} <a href='/delete?id=${question.id}'>delete</a> 
 </c:forEach>
 </li>
 
 <h2>Update a question</h2>
 <form action='update' method='post'> 
-Insert the question id: <input type='text' name='id' value='${requestScope.question.id}'><br> 
-Question: <input type='text' name='question' value='${requestScope.question.question}'><br>
+<label for="id">Insert the question id:</label><br>
+<input type='text' name='id' value='${requestScope.question.id}'><br> 
+<label for="question">Question:</label><br>
+<input type='text' name='question' value='${requestScope.question.question}'><br>
 <input type='submit' name='ok' value='Send'> 
 </form>
+
 <h2>Add a question</h2>
 <form action='addquestion' method='post'>
-Question: <input type='text' name='question' value='${requestScope.question.question}'><br> 
+<label for="question">Question:</label><br>
+<input type='text' name='question' value='${requestScope.question.question}'><br> 
 <input type='submit' name='ok' value='Send'> 
 </form>
 
