@@ -179,7 +179,7 @@ public class Dao {
 
 	public ArrayList<Candidates> updateCandidates(Candidates c) {
 		try {
-			String sql = "update candidates set surname=?, first_name=?, cand_no=?, age=?, hometown=?, party=?, profession=?, descr=? where candidatep_id=?";
+			String sql = "update candidates set surname=?, first_name=?, cand_no=?, age=?, hometown=?, party=?, profession=?, descr=? where candidate_id=?";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, c.getSurname());
 			pstmt.setString(2, c.getFirstname());
