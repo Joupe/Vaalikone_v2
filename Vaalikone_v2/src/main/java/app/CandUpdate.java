@@ -31,15 +31,15 @@ public class CandUpdate extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	     throws IOException, ServletException {
 
-		String id=request.getParameter("candidate_id");
+		String id=request.getParameter("id");
 		String surname=request.getParameter("surname");
-		String firstname=request.getParameter("first_name");
-		String candNumb=request.getParameter("cand_no");
+		String firstname=request.getParameter("firstname");
+		String candNumb=request.getParameter("candNumb");
 		String age=request.getParameter("age");
 		String hometown=request.getParameter("hometown");
 		String party=request.getParameter("party");
 		String profession=request.getParameter("profession");
-		String description=request.getParameter("descr");
+		String description=request.getParameter("description");
 		Candidates c=new Candidates(id, surname, firstname, candNumb, age, hometown, party, profession, description);
 		
 		ArrayList<Candidates> list=null;
