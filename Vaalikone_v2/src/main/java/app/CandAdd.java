@@ -65,8 +65,8 @@ public class CandAdd extends HttpServlet {
 		Candidates c = new Candidates(id, surname, firstname, candNumb, age, hometown, party, profession, description);
 		String cSurname = c.getSurname();
 		String cFirstname = c.getFirstname();
-		String cCandnumb = c.getCandNumb();
-		String cAge = c.getAge();
+		int cCandnumb = c.getCandNumb();
+		int cAge = c.getAge();
 		String cHometown = c.getHometown();
 		String cParty = c.getParty();
 		String cProfession = c.getProfession();
