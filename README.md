@@ -1,9 +1,9 @@
 # Vaalikone_v2
 
 ## Waltteri
-Waltteri's individual tasks were add and edit functions for questions, read function and .jsp for candidates. 
+My individual tasks were add and edit functions for questions, read function and .jsp for candidates. 
 Some of the tasks were assigned to the team and everyone participated on those.
-If someone had any problems, the team would come and help.
+If someone had any problems, the team would come and help. I did also some database working and bugfixing/troubleshooting.
 ## Joona
 First sprint I had the task "creating code that runs questions into database" assigned, but I ended up
 working on the code that edits, reads and removes questions from the database.
