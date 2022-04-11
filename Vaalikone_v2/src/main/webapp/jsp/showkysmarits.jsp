@@ -15,7 +15,7 @@
 <style>
 
 body {
-background-color: tomato;
+background-color: LightBlue;
 }
 
 </style>
@@ -23,22 +23,28 @@ background-color: tomato;
 
 </head>
 <body>
-<h2>Fish application</h2>
+<a style="text-align: center;" href='/index.html'>Home page</a><br>
+<a style="text-align: center;" href='/candidates'>Edit candidates</a>
+<h2>Manage questions</h2>
 <li>
 <c:forEach var="question" items="${requestScope.questionlist}" >
-<li>${question.id}: ${question.question} <a href='/delete?id=${question.id}'>delete</a> <a href='/readtoupdate?id=${question.id}'>update</a>
+<li><b>ID:</b> ${question.id} <b>Question</b>: ${question.question} <a href='/delete?id=${question.id}'>delete</a> 
 </c:forEach>
 </li>
 
-
+<h2>Update a question</h2>
 <form action='update' method='post'> 
-Question id: <input type='text' name='id' value='${requestScope.question.id}'><br> 
-Question: <input type='text' name='question' value='${requestScope.question.question}'><br>
+<label for="id">Insert the question id:</label><br>
+<input type='text' name='id' value='${requestScope.question.id}'><br> 
+<label for="question">Question:</label><br>
+<input type='text' name='question' value='${requestScope.question.question}'><br>
 <input type='submit' name='ok' value='Send'> 
 </form>
+
 <h2>Add a question</h2>
 <form action='addquestion' method='post'>
-Question: <input type='text' name='question' value='${requestScope.question.question}'><br> 
+<label for="question">Question:</label><br>
+<input type='text' name='question' value='${requestScope.question.question}'><br> 
 <input type='submit' name='ok' value='Send'> 
 </form>
 
