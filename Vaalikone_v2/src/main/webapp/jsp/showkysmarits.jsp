@@ -15,7 +15,7 @@
 <style>
 
 body {
-background-color: tomato;
+background-color: LightBlue;
 }
 
 </style>
@@ -23,16 +23,18 @@ background-color: tomato;
 
 </head>
 <body>
-<h2>Fish application</h2>
+<a style="text-align: center;" href='/index.html'>Home page</a><br>
+<a style="text-align: center;" href='/candidates'>Edit candidates</a>
+<h2>Manage questions</h2>
 <li>
 <c:forEach var="question" items="${requestScope.questionlist}" >
-<li>${question.id}: ${question.question} <a href='/delete?id=${question.id}'>delete</a> <a href='/readtoupdate?id=${question.id}'>update</a>
+<li>${question.id}: ${question.question} <a href='/delete?id=${question.id}'>delete</a> 
 </c:forEach>
 </li>
 
-
+<h2>Update a question</h2>
 <form action='update' method='post'> 
-Question id: <input type='text' name='id' value='${requestScope.question.id}'><br> 
+Insert the question id: <input type='text' name='id' value='${requestScope.question.id}'><br> 
 Question: <input type='text' name='question' value='${requestScope.question.question}'><br>
 <input type='submit' name='ok' value='Send'> 
 </form>
