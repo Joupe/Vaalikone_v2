@@ -15,19 +15,23 @@ import data.Candidates;
 
 
 /**
- * Servlet implementation class ShowFish
+ * Date: May 4-2022
+ * Class for showing candidates from database
+ * @author Sikli
  */
 @WebServlet("/candidates")
 public class ShowCandidates extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao = null;
-
+	/**
+	 *Method for database connection
+	 */
 	@Override
 	public void init() {
 		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
 	}
 
-//comment to help choop
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -37,8 +41,8 @@ public class ShowCandidates extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 *Get-method for reading candidates from database table
+	 *Calls readAllCandidates method from Dao.java
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

@@ -13,13 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 import dao.Dao;
 import data.Candidates;
 
-
+/**
+ * Date: May 4-2022
+ * Class for updating candidates in database
+ * @author Sikli
+ */
 @WebServlet(
     name = "CandUpdate",
     urlPatterns = {"/candupdate"}
 )
 public class CandUpdate extends HttpServlet {
 	private Dao dao;
+	/**
+	 *Method for database connection
+	 */
 	public void init() {
 		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
 	}
@@ -28,6 +35,10 @@ public class CandUpdate extends HttpServlet {
 	     throws IOException {
 		response.sendRedirect("index.html");
 	}
+	/**
+	 *Post-method for updating candidates column in database
+	 *Calls updateCandidates method from Dao.java
+	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	     throws IOException, ServletException {
 
