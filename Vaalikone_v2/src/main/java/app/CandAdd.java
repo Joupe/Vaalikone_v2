@@ -14,13 +14,17 @@ import dao.Dao;
 import data.Candidates;
 
 /**
- * Servlet implementation class CandAdd
+ * Date: May 4-2022
+ * Class for adding candidates to database
+ * @author Sikli
  */
 @WebServlet(name = "CandAdd", urlPatterns = { "/candadd" })
 public class CandAdd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao = null;
-
+	/**
+	 *Method for database connection
+	 */
 	@Override
 	public void init() {
 		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
@@ -48,10 +52,15 @@ public class CandAdd extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	/**
+	 *Post-method for adding candidate to database
+	 *Creates a list and adds candidate if connection is valid
+	 *Requires parameters for constructor in string form
+	 *Calls addCandidate method from Dao.java
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
 		String id = null;
 		String surname = request.getParameter("surname");
 		String firstname = request.getParameter("firstname");

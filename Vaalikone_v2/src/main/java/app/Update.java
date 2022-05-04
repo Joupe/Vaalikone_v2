@@ -12,11 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
 import data.Question;
-
+/**
+ * Date: May 4-2022
+ * Class for updating questions in database
+ * @author Sikli
+ */
 @WebServlet(name = "Update", urlPatterns = { "/update" })
 public class Update extends HttpServlet {
 	private Dao dao;
-
+	/**
+	 *Method for database connection
+	 */
 	public void init() {
 		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
 	}
@@ -25,7 +31,10 @@ public class Update extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		response.sendRedirect("index.html");
 	}
-
+	/**
+	 *Post-method for updating questions column in database
+	 *Calls updateQuestions method from Dao.java
+	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String id = request.getParameter("id");
 		String question = request.getParameter("question");

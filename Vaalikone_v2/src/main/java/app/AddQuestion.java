@@ -14,15 +14,19 @@ import dao.Dao;
 import data.Question;
 
 /**
- * Servlet implementation class AddQuestion
+ * Date: May 4-2022
+ * Class for adding questions to database
+ * @author Sikli
+ * 
  */
 @WebServlet(name = "AddQuestion", urlPatterns = { "/addquestion" })
 public class AddQuestion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao = null;
 
-	// JOONA APU ON TULOSSA
-	// CHOUNAH TÖ HELP IS CAMING
+	/**
+	 *Method for database connection
+	 */
 	@Override
 	public void init() {
 		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
@@ -49,12 +53,16 @@ public class AddQuestion extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
+	 *Post-method for posting question to database
+	 *Creates a list and adds question if connection is valid
+	 *Calls addQuestion method from Dao.java
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// doGet(request, response);
 
+		
 		String question = request.getParameter("question");
 		String id = null;
 		

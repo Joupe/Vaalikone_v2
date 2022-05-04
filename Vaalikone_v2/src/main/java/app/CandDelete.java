@@ -13,14 +13,29 @@ import javax.servlet.http.HttpServletResponse;
 import dao.Dao;
 import data.Candidates;
 
+/**
+ * Date: May 4-2022
+ * Class for deleting candidates from database
+ * @author Sikli
+ */
+
 @WebServlet(name = "CandDelete", urlPatterns = { "/canddelete" })
 public class CandDelete extends HttpServlet {
 	private Dao dao;
 
+	/**
+	 *Method for database connection
+	 */
 	public void init() {
+		
 		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
 	}
 
+	/**
+	 *Get-method for deleting candidate
+	 *Deletes candidate from database using getParameter with id set in Candidates.java
+	 *Calls deleteCandidate method from Dao.java
+	 */
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String id = request.getParameter("id");

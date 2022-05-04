@@ -12,16 +12,27 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
 import data.Question;
-
+/**
+ * Date: May 4-2022
+ * Class for deleting questions from database
+ * @author Sikli
+ */
 @WebServlet(name = "Delete", urlPatterns = { "/delete" })
 public class Delete extends HttpServlet {
 	private Dao dao;
-
+	/**
+	 *Method for database connection
+	 */
 	public void init() {
 		dao = new Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "sikli", "kukkuu");
 	}
 
 	@Override
+	/**
+	 *Get-method for deleting questions
+	 *Deletes question from database using getParameter with id set in Questions.java
+	 *Calls deleteQuestion method from Dao.java
+	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String id = request.getParameter("id");
 		ArrayList<Question> list = null;
