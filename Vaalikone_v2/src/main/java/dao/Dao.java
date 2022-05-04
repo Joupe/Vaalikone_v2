@@ -12,6 +12,11 @@ import data.Candidates;
 import data.Question;
 
 import java.sql.Connection;
+/**
+ * Date: May 4-2022
+ * Class for communicating with servlets, databases and classes
+ * @author Sikli
+ */
 
 public class Dao {
 	private String url;
@@ -19,12 +24,22 @@ public class Dao {
 	private String pass;
 	private Connection conn;
 
+	/**
+	 * Constructor for database connection
+	 * @param url url of the database used
+	 * @param user username for database connection
+	 * @param pass password for database connection
+	 */
 	public Dao(String url, String user, String pass) {
 		this.url = url;
 		this.user = user;
 		this.pass = pass;
 	}
 
+	/**
+	 * Method for connecting to database
+	 * @return Returns true if connection is valid
+	 */
 	public boolean getConnection() {
 		try {
 			if (conn == null || conn.isClosed()) {
@@ -42,6 +57,10 @@ public class Dao {
 		}
 	}
 
+	/**
+	 * Method for reading all questions from database table
+	 * @return returns a list of questions from database
+	 */
 	public ArrayList<Question> readAllQuestions() {
 		ArrayList<Question> list = new ArrayList<>();
 		try {
@@ -59,6 +78,11 @@ public class Dao {
 		}
 	}
 
+	/**
+	 * Method used to update a specific question from database
+	 * @param q Parameter for the updated question
+	 * @return returns an updated list of questions from database
+	 */
 	public ArrayList<Question> updateQuestions(Question q) {
 		try {
 			String sql = "update questions set question=? where question_id=?";
@@ -72,6 +96,11 @@ public class Dao {
 		}
 	}
 
+	/**
+	 * Method for deleting a specific question from database
+	 * @param id Parameter for question id to delete
+	 * @return Returns updated list of questions after deletion
+	 */
 	public ArrayList<Question> deleteQuestion(String id) {
 		try {
 			String sql = "delete from questions where question_id=?";
@@ -84,6 +113,11 @@ public class Dao {
 		}
 	}
 
+	/**
+	 * Method for reading a specific question from database
+	 * @param id Parameter for question id to read
+	 * @return Returns the question from database
+	 */
 	public Question readQuestion(String id) {
 		Question q = null;
 		try {
@@ -102,6 +136,11 @@ public class Dao {
 		}
 	}
 
+	/**
+	 * Method for adding a question to database
+	 * @param kysmari Parameter for the question itself
+	 * @return Returns the updated question table from database
+	 */
 	public ArrayList<Question> addQuestion(String kysmari) {
 		Question que = null;
 		try {
@@ -116,6 +155,10 @@ public class Dao {
 		return null;
 	}
 
+	/**
+	 * Method for reading all candidates from database
+	 * @return Returns a list of all the candidates in database
+	 */
 	public ArrayList<Candidates> readAllCandidates() {
 		ArrayList<Candidates> list = new ArrayList<>();
 		try {
@@ -140,6 +183,11 @@ public class Dao {
 		}
 	}
 
+	/**
+	 * Method for reading a specific candidate from database
+	 * @param id Parameter for candidates id read from database
+	 * @return Returns the specific candidate from database
+	 */
 	public Candidates readCandidate(String id) {
 		Candidates c = null;
 		try {
@@ -165,6 +213,11 @@ public class Dao {
 		}
 	}
 
+	/**
+	 * Method for deleting a candidate from database
+	 * @param id Parameter for candidate id to delete
+	 * @return Returns updated candidate list after deletion
+	 */
 	public ArrayList<Candidates> deleteCandidate(String id) {
 		try {
 			String sql = "delete from candidates where candidate_id=?";
@@ -177,6 +230,11 @@ public class Dao {
 		}
 	}
 
+	/**
+	 * Method for updating a candidate from database
+	 * @param c Parameter for the updated candidate
+	 * @return Returns updated candidate list from database
+	 */
 	public ArrayList<Candidates> updateCandidates(Candidates c) {
 		try {
 			String sql = "update candidates set surname=?, first_name=?, cand_no=?, age=?, hometown=?, party=?, profession=?, descr=? where candidate_id=?";
@@ -197,6 +255,18 @@ public class Dao {
 		}
 	}
 
+	/**
+	 * Method for adding a candidate to the database
+	 * @param cSurname Parameter for candidate surname
+	 * @param cFirstname Parameter for candidate first name
+	 * @param cCandnumb Parameter for candidate number
+	 * @param cAge Parameter for candidate age
+	 * @param cHometown Parameter for candidate hometown
+	 * @param cParty Parameter for candidate party
+	 * @param cProfession Parameter for candidate profession
+	 * @param cDescription Parameter for candidate description
+	 * @return Returns the updated candidate list
+	 */
 	public ArrayList<Candidates> addCandidate(String cSurname, String cFirstname, int cCandnumb, int cAge,
 			String cHometown, String cParty, String cProfession, String cDescription) {
 //		Candidates cand = null;

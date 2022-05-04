@@ -1,5 +1,9 @@
 package data;
-
+/**
+ * Date: May 4-2022
+ * Class for candidate setters, getters and constructors
+ * @author Sikli
+ */
 public class Candidates {
 	private int id;
 	private String surname;

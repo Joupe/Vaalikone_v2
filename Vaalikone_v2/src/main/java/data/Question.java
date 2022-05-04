@@ -1,5 +1,9 @@
 package data;
-
+/**
+ * Date: May 4-2022
+ * Class for question setters, getters and constructors
+ * @author Sikli
+ */
 public class Question {
 	private int id;
 	private String question;
